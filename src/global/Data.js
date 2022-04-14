@@ -15,3 +15,8 @@ export const filterData = [
                     {name:"야식",image:require("../assets/night.png"),id:"13"},
                     {name:"도시락",image:require("../assets/lunchBox.png"),id:"14"},
                 ];
+                
+export const restaurantsData = [
+    
+
+];
