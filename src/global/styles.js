@@ -12,7 +12,7 @@ export const colors = {
     cardbackground:"white",
     statusbar:"#B2F340", // 상태바와 같아야 보기 좋음
     headerText:"#2F4F4F",
-   
+    lightgreen:"#66DF48",
 }
 
 export const paramenters = {

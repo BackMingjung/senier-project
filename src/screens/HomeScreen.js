@@ -1,18 +1,24 @@
 import React,{useState} from "react";  
 
-import { View, 
-         Text,
-        StyleSheet , 
+import {View, 
+        Text,
+        StyleSheet, 
         TouchableOpacity, 
         ScrollView, 
         Pressable,
         FlatList,
-        Image } from "react-native";   
+        Image,
+        Dimensions } from "react-native";   
 import { Icon } from "react-native-elements";
+import Countdown from 'react-native-countdown-component'
 import HomeHeader from "../components/HomeHeader";
 import {colors,paramenters} from "../global/styles"
 import { Collapse,CollapseHeader, CollapseBody, AccordionList } from "accordion-collapse-react-native";
-import {filterData} from "../global/Data"
+import {filterData,restaurantsData} from "../global/Data"
+import FoodCard from "../components/FoodCard";
+import { checkPropTypes } from "prop-types";
+
+const SCREEN_WIDTH = Dimensions.get('window').width
 
 export default function HomeScreen(){
 
@@ -29,7 +35,7 @@ export default function HomeScreen(){
 
             >
             
-                <View> 
+                <View style = {{backgroundColor:colors.cardbackground, paddingBottom:5}}> 
                     <View style = {{marginTop:10,flexDirection:'row',alignContent:"center",justifyContent:"center"}}>
                         <View style = {{marginTop:8, flexDirection:"row",justifyContent:"center"}}>
                             <TouchableOpacity
@@ -161,15 +167,118 @@ export default function HomeScreen(){
                 </CollapseHeader>
                 <CollapseBody>
                     <View>
-                        <Text>text 지우고 여기다가 하면 됨</Text> 
+                        <FlatList
+                           style ={{marginTop:10, marginBottom:10}}
+                           horizontal ={true}
+                           data = {restaurantsData}
+                           keyExtractor = {(item,index)=>index.toString()}
+                           showsHorizontalScrollIndicator = {false}
+
+                           renderItem = {({item})=>(
+                               <View style = {{marginRight:5}}>
+                                   <FoodCard
+                                    screenWidth = {SCREEN_WIDTH*0.8}
+                                    images ={item.images}
+                                    restaurantName ={item.restaurantName}
+                                    farAway ={item.farAway}
+                                    businessAddress = {item.businessAddress}
+                                    averageReview ={item.averageReview}
+                                    numberOfReview ={item.numberOfReview}
+                                    
+                                   />
+                               </View>
+                           )}
+                        /> 
                     </View>
                 </CollapseBody>
                 </Collapse>
                                     {/*끝점 */}    
                 
+                <Collapse>
+                <CollapseHeader>
+                <View style = {styles.hearTextView}>  
+                    <Text style= {styles.headerText}>행사 중</Text>
+                    <Icon
+                        type="material-community"
+                        name="folder"
+                        color={colors.grey1}
+                        size={30}
+                        marginRight={15}                          
+                    />
+                 </View>
+                </CollapseHeader>
+                <CollapseBody>
+                        <FlatList
+                           style ={{marginTop:10, marginBottom:10}}
+                           horizontal ={true}
+                           data = {restaurantsData}
+                           keyExtractor = {(item,index)=>index.toString()}
+                           showsHorizontalScrollIndicator = {false}
 
-            </ScrollView>
-        </View>
+                           renderItem = {({item})=>(
+                               <View style = {{marginRight:5}}>
+                                   <FoodCard
+                                    screenWidth = {SCREEN_WIDTH*0.8}
+                                    images ={item.images}
+                                    restaurantName ={item.restaurantName}
+                                    farAway ={item.farAway}
+                                    businessAddress = {item.businessAddress}
+                                    averageReview ={item.averageReview}
+                                    numberOfReview ={item.numberOfReview}
+                                    
+                                   />
+                               </View>
+                           )}
+                           
+                        />
+                </CollapseBody>
+                </Collapse>
+
+                <Collapse>
+                <CollapseHeader>
+                <View style = {styles.hearTextView}>  
+                    <Text style= {styles.headerText}>가까운 식당</Text>
+                    <Icon
+                        type="material-community"
+                        name="folder"
+                        color={colors.grey1}
+                        size={30}
+                        marginRight={15}                          
+                    />
+                </View>
+                </CollapseHeader>
+                <CollapseBody>
+                <View style ={{width:SCREEN_WIDTH,padingTop:10}}>
+                {
+                    restaurantsData.map(item=>(
+                        <View key={item.id} style = {{paddingBottom:20}}>
+                        <FoodCard
+                                screenWidth = {SCREEN_WIDTH*0.95}
+                                images ={item.images}
+                                restaurantName ={item.restaurantName}
+                                farAway ={item.farAway}
+                                businessAddress = {item.businessAddress}
+                                averageReview ={item.averageReview}
+                                numberOfReview ={item.numberOfReview}
+                                    
+                            />
+                        </View>
+                        
+                
+                    )
+                    )
+                }
+
+            </View>
+            </CollapseBody>
+                </Collapse>
+
+
+
+                
+
+</ScrollView>
+</View>
     )
 }
 
