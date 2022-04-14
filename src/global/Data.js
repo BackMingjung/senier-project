@@ -17,6 +17,23 @@ export const filterData = [
                 ];
                 
 export const restaurantsData = [
-    
+                    {restaurantName:"돈브로", farAway:"",
+                    businessAddress:"강남로167번길 26 1층", images:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW_WsiiUDmkpyf04qU9YOiU4bpkg1v9Ml_cg&usqp=CAU',
+                    averageReview:4.4, numberOfReview:33, coordinates:{lat:35 , lng:128},
+                    collecttime:5, foodType:"돈까스",
+                    productData:[{name:"등심 돈까스", price:5500, image:'https://t1.daumcdn.net/cfile/tistory/999F90435BCD7D451E'},
+                    {name:"안심 돈까스", price:6000, image:'https://d12zq4w4guyljn.cloudfront.net/20191018045832_photo1_0c0e3f9c55be.jpg'},
+                    {name:"치즈 돈까스", price:6500, image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWmJM8is9P1laJ90vgAcOzHjNAz5bUvQdXgw&usqp=CAU'},
+                    ],
+                    id:0},
+                    /*{restaurantName:"", farAway:"",
+                    businessAddress:"", images:'',
+                    averageReview:, numberOfReview:, coordinates:{lat: , lng:},
+                    collecttime:, foodType:"",
+                    productData:[{name:"", price:, image:''},
+                    {name:"", price:, image:''},
+                    {name:"", price:, image:''},
+                    ],
+                    id:},*/
 
-];
+                ];

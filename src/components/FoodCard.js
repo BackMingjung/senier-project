@@ -25,9 +25,9 @@ export default function FoodCard({
 
     return(
         <TouchableOpacity>
-            <View style ={{...Stylesheet.carView,width:screenWidth}}>
+            <View style ={{...StyleSheet.carView,width:screenWidth}}>
                 <Image
-                    style ={{...style.image, width:screenWidth}}
+                    style ={{...styles.image, width:screenWidth}}
                     source = {{uri:images}}
                 />
             </View>
@@ -53,7 +53,7 @@ export default function FoodCard({
                     </View>
 
                     <View style = {{flex:9, flexDirection:"row"}}>
-                        <Text style ={style.address}>{businessAddress}</Text>
+                        <Text style ={styles.address}>{businessAddress}</Text>
                     </View>
 
                 </View>
