@@ -169,7 +169,7 @@ export const restaurantsData = [
 
                     {restaurantName:"비스트로피자", farAway:"586m",
                     businessAddress:"칠암동 514-19", images:'https://www.shuttledelivery.co.kr/uploads/bistro-pizza-logo_885ece9f9b7b19b4fab4abe41f8d36251631766911.jpg',
-                    averageReview:309, numberOfReview:20, coordinates:{lat:35.193812, lng:128.082984},
+                    averageReview:3.9, numberOfReview:20, coordinates:{lat:35.193812, lng:128.082984},
                     collecttime:12, foodType:"피자",
                     productData:[{name:"페퍼로니피자", price:14500, image:'https://t1.daumcdn.net/cfile/tistory/99C4114E5E03104C01'},
                     {name:"골드고구마피자", price:16500, image:'https://d3af5evjz6cdzs.cloudfront.net/images/uploads/800x0/_6a036d844cb00365a8e1892daef98bcb1632909589.jpg'},
