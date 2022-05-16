@@ -79,7 +79,7 @@ export default function SingInWelcomeScreen ({ navigation }){
 
             <View style = {{marginHorizontal:20,marginTop:30}}>
                     <Button 
-                        title="확인"
+                        title="로그인"
                         buttonStyle={paramenters.styleButton}
                         titleStyle={paramenters.buttontitle}
                             

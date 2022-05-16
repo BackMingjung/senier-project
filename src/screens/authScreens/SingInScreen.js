@@ -66,10 +66,11 @@ export default function SingInScreen({ navigation }){
 
                 <View style = {{marginHorizontal:20,marginVertical:5}}>
                     <Button 
-                        title="확인"
+                        title="로그인"
                         buttonStyle={paramenters.styleButton}
                         titleStyle={paramenters.buttontitle}
-                        onPress={() => navigation.navigate('HomeScreen')}
+                            onPress ={()=>{navigation.navigate('DrawerNavigator')}}
+                            //DrawerNavigator 변경전
                     />
                 </View>
 

@@ -20,7 +20,7 @@ import { checkPropTypes } from "prop-types";
 
 const SCREEN_WIDTH = Dimensions.get('window').width
 
-export default function HomeScreen(){
+export default function HomeScreen({navigation}){
 
     const [delivery,setDelivery] = useState(true)
     const [indexCheck,setIndexCheck] = useState("0")
@@ -54,6 +54,7 @@ export default function HomeScreen(){
                             <TouchableOpacity
                                 onPress={()=>{
                                     setDelivery(false)
+                                    navigation.navigate("RestaurantMapScreen")
                                 }}
                             >
                                 <View style = {{...styles.deliveryBR,backgroundColor:delivery?colors.grey4:colors.buttons}}>
@@ -278,6 +279,26 @@ export default function HomeScreen(){
                 
 
 </ScrollView>
+
+{ delivery && 
+<View style ={styles.floatButton}>
+    <TouchableOpacity
+                onPress ={()=>{
+                    navigation.navigate('RestaurantMapScreen')
+                }}
+            >
+
+        <Icon 
+            name = "place"
+            type = "material"
+            size = {32}
+            color = {colors.buttons}
+        />
+
+        <Text style = {{color:colors.grey2}}>지도</Text>
+    </TouchableOpacity>
+</View>
+}
 </View>
     )
 }
@@ -378,6 +399,16 @@ const styles = StyleSheet.create({
         fontWeight:"bold",
         color:colors.grey2,
         fontSize:11
+    },
+
+    floatButton:{
+        position:'absolute',
+        bottom:10,right:15,
+        backgroundColor:'white',
+        elevation:10,
+        width:60,height:60,
+        borderRadius:30,
+        alignItems:'center'
     }
     
     
