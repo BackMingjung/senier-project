@@ -106,7 +106,7 @@ export default function HomeScreen({navigation}){
                 <CollapseHeader
                 >
                 <View style = {styles.hearTextView}>
-                    <Text style= {styles.headerText}>Click here</Text>
+                    <Text style= {styles.headerText}>카테고리</Text>
                     <Icon
                                             type="material-community"
                                             name="folder"
