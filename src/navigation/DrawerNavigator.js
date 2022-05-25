@@ -34,7 +34,7 @@ export default function DrawerNavigator(){
                 name = "Business consoleScreen"
                 component ={BusinessConsoleScreen}
                 options = {{
-                    title:'Business console',
+                    title: '비즈니스 콘솔',
                     drawerIcon: ({focussed,size}) =>(
                         <Icon 
                             type = "material"
