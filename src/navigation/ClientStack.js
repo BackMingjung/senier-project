@@ -43,7 +43,9 @@ export default function ClientStack({navigation, route}) {
                  })
              }
         />
+        
         <ClientSearch.Screen
+        //가게 누르기
              name="RestaurantHomeScreen"
              component={RestaurantHomeScreen}
              options = {
@@ -52,6 +54,7 @@ export default function ClientStack({navigation, route}) {
                  })
              }
         />
+        
 
         <ClientSearch.Screen
              name="MenuProductScreen"

@@ -1,9 +1,9 @@
 import React,{useState} from 'react'
-import { StyleSheet, Text, View,ScrollView,Dimensions,TouchableOpacity ,Modal} from 'react-native'
+import { StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity, Modal} from 'react-native'
 import RestaurantHeader from '../components/RestaurantHeader';
 import { restaurantsData } from '../global/Data';
-import {colors,fonts} from '../global/styles';
-import {Icon} from 'react-native-elements'
+import { colors, fonts } from '../global/styles';
+import { Icon } from 'react-native-elements';
 import { TabView,TabBar } from 'react-native-tab-view';
 import MenuScreen from './RestaurantTabs/MenuScreen';
 
@@ -12,23 +12,24 @@ const initialLayout = SCREEN_WIDTH;
 
 const RestaurantHomeScreen = ({navigation,route}) => {
 
-    const {id,restaurant} = route.params
+    const {id, restaurant} = route.params
 
     const[routes] = useState([
-        {key:'first',title:"MENU"},
-        {key:'second',title:"INFO"},
-        {key:'third',title:"REVIEWS"},
-        {key:'fourth',title:"GALLERY"},
+        {key:'first',title:'메뉴'},
+        {key:'second',title:'정보'},
+        {key:'third',title:'리뷰'},
+        {key:'fourth',title:'사진'},
     ])
 
     const [index,setIndex] = useState(0)
+
     const renderTabBar = props =>(
         <TabBar 
             {...props}
             indicatorStyle = {{backgroundColor:colors.cardbackground}}
             tabStyle = {styles.tabStyle}
             scrollEnabled = {true}
-            style ={styles.tab}
+            style = {styles.tab}
             labelStyle = {styles.tabLabel}
             contentContainerStyle = {styles.tabContainer}
         />
@@ -42,7 +43,7 @@ const RestaurantHomeScreen = ({navigation,route}) => {
         )
     }
 
-    const menuPressed =()=>{
+    const menuPressed=()=>{
         navigation.navigate("MenuProductScreen")
     }
 
@@ -50,73 +51,72 @@ const RestaurantHomeScreen = ({navigation,route}) => {
     return (
         <View style ={styles.container}>
             <ScrollView>
-
                 <View>
-                     <RestaurantHeader id ={id} navigation ={navigation} />
-                     {restaurantsData[id].discount &&
-                     <View style ={styles.view1}>
-                        <Text style ={styles.text1}>GET {restaurantsData[id].discount}% OFF ON FOOD TOTAL</Text>
-                     </View>
-                     }
-                    <View style ={styles.view2}>
-
+                    <RestaurantHeader id ={id} navigation = {navigation}/>
+                    {restaurantsData[id].discount &&
+                    <View style ={styles.view1}>
+                        <Text style ={styles.text1}>최대 {restaurantsData[id].discount}% 할인받기</Text>
+                    </View>
+                    }
+                <View style ={styles.view2}>
                     <View style ={styles.view3}>
                         <Text style ={styles.text2}>{restaurantsData[id].restaurantName}</Text>
                         <Text style ={styles.text3}>{restaurantsData[id].foodType}</Text>
                         <View style ={styles.view4}>
-                            <Icon name ="star" type ="material-community" color = {colors.grey3} size = {15} />
+                            <Icon name ='star' type='material-community' color={colors.grey3} size ={15} />
                             <Text style ={styles.text4}>{restaurantsData[id].averageReview}</Text>
                             <Text style ={styles.text5}>{restaurantsData[id].numberOfReview}</Text>
-                            <Icon name ="map-marker" type ="material-community" color = {colors.grey3} size = {15} />
-                            <Text style ={styles.text6}>{restaurantsData[id].farAway} mi away</Text> 
+                            <Icon name ='map-marker' type='material-community' color={colors.grey3} size ={15} />
+                            <Text style ={styles.text6}>{restaurantsData[id].farAway}</Text>
                         </View>
                     </View>
-
                     <View style ={styles.view5}>
-                       <Text style = {styles.text6}>Collect</Text>
-                       <View style ={styles.view7}>
-                            <Text style ={styles.text7}>{restaurantsData[id].collectTime}</Text>
-                            <Text style ={styles.text8}>min</Text>
-                       </View>
-                    </View>
-
-                    <View style ={styles.view8}>
-                        <Text style ={styles.text6}>Delivery</Text>
-                        <View style ={styles.view9}>
-                            <Text style = {styles.text9}>{restaurantsData[id].deliveryTime}</Text>
-                            <Text style ={styles.text11}>min</Text>
+                        <Text style ={styles.text6}>포장</Text>
+                        <View style ={styles.view7}>
+                            <Text style ={styles.text7}>{restaurantsData[id].collecttime}</Text>
+                            <Text style ={styles.text8}>분</Text>
                         </View>
 
                     </View>
+                    <View style ={styles.view8}>
+                        <Text style ={styles.text6}>배달</Text>
+                        <View style ={styles.view9}>
+                            <Text style ={styles.text9}>{restaurantsData[id].deliverytime}</Text>
+                            <Text style ={styles.text11}>분</Text>
+                        </View>
+
                     </View>
+                </View>     
                 </View>
 
                 <View style ={styles.view10}>
-                     <TabView 
-                         navigationState ={{index,routes}}
-                         renderScene = {UpdateRoute1}
-                         onIndexChange = {setIndex}
-                         initialLayout = {initialLayout}
-                         renderTabBar = {renderTabBar}
-                         tabBarPosition = 'top'
-                     />
+                    <TabView 
+                        navigationState = {{index,routes}}
+                        renderScene = {UpdateRoute1}
+                        onIndexChange = {setIndex}
+                        initialLayout = {initialLayout}
+                        renderTabBar = {renderTabBar}
+                        tabBarPosition = 'top'
+                    />
                 </View>
 
                 {index === 0 &&
-                    <MenuScreen onPress = {menuPressed}/>
-                } 
-           </ScrollView>
+                  <MenuScreen onPress={menuPressed}/>
+                }
+
+            </ScrollView>
 
             <TouchableOpacity>
-                <View style ={styles.view11}>
-                    <View style ={styles.view12}>
-                        <Text style ={styles.text13}>View Cart</Text>
-                        <View style ={styles.view13}>
-                            <Text style ={styles.text13}>0</Text>
+                <View style={styles.view11}>
+                    <View style={styles.view12}>
+                        <Text style = {styles.text13}>장바구니</Text>
+                        <View style = {styles.view13}>
+                            <Text style = {styles.text13}>0</Text>
                         </View>
                     </View>
                 </View>
             </TouchableOpacity>
+
         </View>
     )
 }
@@ -131,6 +131,7 @@ const styles = StyleSheet.create({
     },
 
     view1:{
+        width:'100%',
         padding:3,
         alignItems:'center',
         justifyContent:'center'

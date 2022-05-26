@@ -5,8 +5,6 @@ import {colors} from "../global/styles";
 import ProductCard from './ProductCard';
 
 
-
-
 const SearchResultCard = ({
     OnPressRestaurantCard ,
     restaurantName ,
