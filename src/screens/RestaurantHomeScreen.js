@@ -1,11 +1,11 @@
 import React,{useState} from 'react'
-import { StyleSheet, Text, View, ScrollView, Dimensions} from 'react-native'
+import { StyleSheet, Text, View, ScrollView, Dimensions, TouchableOpacity, Modal} from 'react-native'
 import RestaurantHeader from '../components/RestaurantHeader';
 import { restaurantsData } from '../global/Data';
 import { colors, fonts } from '../global/styles';
 import { Icon } from 'react-native-elements';
 import { TabView,TabBar } from 'react-native-tab-view';
-
+import MenuScreen from './RestaurantTabs/MenuScreen';
 
 const SCREEN_WIDTH = Dimensions.get('window').width
 const initialLayout = SCREEN_WIDTH;
@@ -35,7 +35,6 @@ const RestaurantHomeScreen = ({navigation,route}) => {
         />
     )
 
-
     const UpdateRoute1 =()=>{
         return(
             <View>
@@ -44,9 +43,9 @@ const RestaurantHomeScreen = ({navigation,route}) => {
         )
     }
 
-
-
-
+    const menuPressed=()=>{
+        navigation.navigate("MenuProductScreen")
+    }
 
 
     return (
@@ -56,7 +55,7 @@ const RestaurantHomeScreen = ({navigation,route}) => {
                     <RestaurantHeader id ={id} navigation = {navigation}/>
                     {restaurantsData[id].discount &&
                     <View style ={styles.view1}>
-                        <Text style ={styles.text1}>GET {restaurantsData[id].discount}% OFF ON FOOD TOTAL</Text>
+                        <Text style ={styles.text1}>최대 {restaurantsData[id].discount}% 할인받기</Text>
                     </View>
                     }
                 <View style ={styles.view2}>
@@ -100,7 +99,24 @@ const RestaurantHomeScreen = ({navigation,route}) => {
                         tabBarPosition = 'top'
                     />
                 </View>
+
+                {index === 0 &&
+                  <MenuScreen onPress={menuPressed}/>
+                }
+
             </ScrollView>
+
+            <TouchableOpacity>
+                <View style={styles.view11}>
+                    <View style={styles.view12}>
+                        <Text style = {styles.text13}>장바구니</Text>
+                        <View style = {styles.view13}>
+                            <Text style = {styles.text13}>0</Text>
+                        </View>
+                    </View>
+                </View>
+            </TouchableOpacity>
+
         </View>
     )
 }
@@ -111,7 +127,7 @@ const styles = StyleSheet.create({
 
     container:{
         flex:1,
-        marginTop:18
+        paddingTop:20
     },
 
     view1:{
@@ -252,7 +268,8 @@ const styles = StyleSheet.create({
         backgroundColor:colors.buttons,
         height:50,
         alignContent:'center',
-        marginBottom:0
+        marginBottom:0,
+        justifyContent:"center"
     },
 
     view12:{
@@ -304,8 +321,30 @@ const styles = StyleSheet.create({
     tabStyle:{
         width:SCREEN_WIDTH/4,
         maxHeight:45
-    }
+    },
 
+    view14:{
+        flexDirection:"row",
+        alignItems:"center",
+        padding:10,
+        backgroundColor:colors.buttons,
+        top:0,
+        left:0,
+        right:0,
+        paddingTop:25
+    },
+
+    text14:{
+        fontWeight:"bold",
+        marginLeft:40,
+        fontSize:18,
+        color:colors.black
+    },
+
+    view15:{
+        marginTop:5,
+        paddingBottom:20
+    },
 
 
 })

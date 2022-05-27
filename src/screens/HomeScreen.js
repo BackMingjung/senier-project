@@ -8,7 +8,8 @@ import {View,
         Pressable,
         FlatList,
         Image,
-        Dimensions } from "react-native";   
+        Dimensions,
+        StatusBar } from "react-native";   
 import { Icon } from "react-native-elements";
 import Countdown from 'react-native-countdown-component'
 import HomeHeader from "../components/HomeHeader";
@@ -28,6 +29,11 @@ export default function HomeScreen({navigation}){
 
     return(
         <View style={styles.container}>
+            <StatusBar
+                translucent
+                barStyle="light-content"
+                style={{backgroundColor:colors.buttons}}
+            />
             <HomeHeader/>
             <ScrollView
                 stickyHeaderIndices={0}//???
@@ -307,6 +313,7 @@ const styles = StyleSheet.create({
 
     container:{
         flex:1,
+        paddingTop:20
     },
 
     deliveryBL:{
