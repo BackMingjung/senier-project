@@ -502,33 +502,27 @@ export const menuDetailsData = [
 ];
 
 export const menuData=[
-  {title:"고기",special:false,key:0},
+  {title:"햄버거",special:false,key:0},
   {title:"치킨",special:false,key:1},
-  {title:"야채 햄버거",special:false,key:2},
-  {title:"감자튀김&옥수수",special:false,key:3},
+  {title:"비건버거",special:false,key:2},
+  {title:"세트",special:false,key:3},
   {title:"샐러드",special:false,key:4},
-  {title:"즐거운 식사",special:false,key:5},
-  {title:"SAHRE 박스",special:false,key:6},
-  {title:"밀크 쉐이크",special:false,key:7},
-  {title:"차가운 음료",special:false,key:8},
-  {title:"디저트",special:false,key:9},
-  {title:"뜨거운 음료",special:false,key:10},
+  {title:"감자튀김",special:false,key:5},
+  {title:"아이스음료",special:false,key:6},
+  {title:"핫음료",special:false,key:7},
+  {title:"디저트",special:false,key:8},
 ];
 
 export const specialData=[
-  {title:"한정 주문",key:0},
-  {title:"고추",key:1},
-  {title:"치즈",key:2},
-  {title:"MCCHICKEN DELUXE PROMO",key:3},
+  {title:"인기 메뉴",key:0},
 ];
 
 export const menu=[
-  {key:1, title: '고기'},
+  {key:1, title: '햄버거'},
   {key:2, title: '치킨'},
-  {key:3, title: '야채버거'},
-  {key:4, title: 'SHARE 박스'},
-  {key:5, title: '즐거운 식사'},
-  {key:6, title: '감자튀김'},
-  {key:7, title: '사이드'},
-  {key:8, title: '밀크쉐이크'},
+  {key:3, title: '비건버거'},
+  {key:4, title: '세트'},
+  {key:5, title: '감자튀김'},
+  {key:6, title: '사이드'},
+  {key:7, title: '음료수'},
 ]

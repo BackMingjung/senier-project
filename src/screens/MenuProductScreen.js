@@ -1,6 +1,6 @@
 import React ,{useState}from 'react'
 import { StyleSheet, Text, View,Dimensions} from 'react-native'
-import { Route1,Route2,Route3,Route4,Route5,Route6,Route7,Route8 } from './MenuTabs';
+import { Route1,Route2,Route3,Route4,Route5,Route6,Route7 } from './MenuTabs';
 import { restaurantsData,menu } from '../global/Data';
 import { TabView,TabBar } from 'react-native-tab-view';
 import {colors} from '../global/styles'
@@ -42,8 +42,6 @@ const MenuProductScreen = ({navigation,route}) => {
                 return <Route6 name = {navigation} />
                 case 7: 
                 return <Route7 name = {navigation} />
-                case 8: 
-                return <Route8 name = {navigation} />
 
             default:
                 return null
