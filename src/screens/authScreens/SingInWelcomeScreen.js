@@ -94,6 +94,7 @@ export default function SingInWelcomeScreen ({ navigation }){
                         title="계정 만들기"
                         buttonStyle={styles.createButton} 
                         titleStyle={styles.createButtonTitle}
+                        onPress = {()=>{navigation.navigate("SingUpScreen")}}
                     />
                 </View>
             </View>

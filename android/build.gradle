@@ -4,16 +4,21 @@ buildscript {
     ext {
         buildToolsVersion = "30.0.2"
         minSdkVersion = 21
-        compileSdkVersion = 30
-        targetSdkVersion = 30
+        compileSdkVersion = 31 //
+        targetSdkVersion = 31 // 오류로 교체 30 -> 31
         ndkVersion = "21.4.7075529"
+        supportLibVersion = "29.0.2" //22에서 추가
+        playServicesVersion = "17.0.0"
+        androidMapsUtilsVersion = "1.2.1"
     }
     repositories {
         google()
         mavenCentral()
+        jcenter() // 22 전에 있어야 하던거
     }
     dependencies {
         classpath("com.android.tools.build:gradle:4.2.2")
+        classpath 'com.google.gms:google-services:4.3.10'  // 22에서 추가
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -37,6 +42,7 @@ allprojects {
             }
         }
         google()
+        maven { url 'https://maven.google.com'} //22 add
         maven { url 'https://www.jitpack.io' }
     }
 }

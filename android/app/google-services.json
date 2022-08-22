@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "338111893809",
+    "project_id": "jinjueats-6dc67",
+    "storage_bucket": "jinjueats-6dc67.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338111893809:android:8a634564066e3d8f862010",
+        "android_client_info": {
+          "package_name": "com.fooddelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "338111893809-ai18npd3s7m10f4ulrugv1o85juqs76k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9Tx-w8BWfvH3fO0xo0SxeQUOwgZkNmPo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "338111893809-ai18npd3s7m10f4ulrugv1o85juqs76k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

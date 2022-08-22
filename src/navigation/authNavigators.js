@@ -7,6 +7,7 @@ import HomeScreen from "../screens/HomeScreen";
 import RootClientTabs from "./ClientTabs";
 import RestaurantMapScreen from "../screens/RestaurantMapScreen";
 import DrawerNavigator from "./DrawerNavigator"
+import SingUpScreen from "../screens/authScreens/SingUpScreen";
 
 const Drower = createStackNavigator();
 
@@ -25,6 +26,14 @@ export default function AuthStack(){
         <Drower.Screen
                 name = "SingInScreen"
                 component={SingInScreen}
+                options = {{
+                    headerShown:false,
+                    ...TransitionPresets.RevealFromBottomAndroid
+                }}
+            />
+        <Drower.Screen
+                name = "SingUpScreen"
+                component={SingUpScreen}
                 options = {{
                     headerShown:false,
                     ...TransitionPresets.RevealFromBottomAndroid

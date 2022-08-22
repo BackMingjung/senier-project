@@ -2,11 +2,12 @@
 
 import React,{useState,useRef} from "react";
 
-import {View, Text, StyleSheet,Dimensions,TextInput,} from 'react-native'
+import {View, Text, StyleSheet,Dimensions,TextInput, Alert,} from 'react-native'
 import {colors, paramenters,} from "../../global/styles"
 import * as Animatable from 'react-native-animatable'
-
+import {Formik} from 'formik'; //22에서 추가
 import { Icon, Button, SocialIcon   } from "react-native-elements";
+import auth from '@react-native-firebase/auth'
 
 import Header from '../../components/Header'
 import { title } from "../../global/styles";
@@ -19,12 +20,28 @@ export default function SingInScreen({ navigation }){
     const TextInput1 = useRef(1)
     const TextInput2 = useRef(2)
 
+    async function signIn(data){
+        try{
+        const {password,email} = data
+        const user = await auth().signInWithEmailAndPassword(email,password)
+        if(user){
+            console.log("USER SIGNED-IN")
+        }
+        }
+        catch(error){
+            Alert.alert(
+                error.name,
+                error.message
+            )
+        }
+    }
     return(
         <View style = {styles.container}>
+                
                 <Header title  = "나의 계정"  type = "chevron-left" navigation={navigation}/>
 
                 <View style = {{marginLeft:160,marginTop:10}}>
-                    <Text style = {title}>Loig-in</Text>
+                    <Text style = {title}>Log-in</Text>
                 </View>
 
                 <View style = {{alignItems:"center",marginTop:5}}>
@@ -32,47 +49,62 @@ export default function SingInScreen({ navigation }){
                     <Text style = {styles.t1}>혹은 회원가입을 부탁드립니다</Text>
                 </View>
 
-                <View style = {{marginLeft:22, marginTop:5}}>
-                    <Text style = {styles.t1}>email</Text>
-                </View>
-                <View style = {{marginTop:5}}>
+                <Formik        //22에서 추가
+                    initialValues={{email:'',password:''}}
+                    onSubmit = {(values)=>{
+                        signIn(values)
+                    }}
+                >{ (props)=>
+                <View>
+                    <View style = {{marginLeft:22, marginTop:5}}>
+                        <Text style = {styles.t1}>email</Text>
+                    </View>
+                    <View style = {{marginTop:5}}>
+                        <View>
+                            <TextInput
+                                style = {styles.TextInput1}
+                                ref = {TextInput1}
+                                onChangeText = {props.handleChange('email')}
+                                value = {props.values.email}
+                            />
+                        </View>
+                    </View>
+
+                    <View style = {{marginLeft:22,marginTop:-12}}>
+                        <Text style = {styles.t1}>password</Text>
+                    </View>
                     <View>
                         <TextInput
-                            style = {styles.TextInput1}
-                            ref = {TextInput1}
+                            style={styles.TextInput2}
+                            ref = {TextInput2}
+                            onChangeText = {props.handleChange('password')} //22에서 추가
+                            value = {props.values.password}
+                        //비밀번호 입력칸 + 비밀번호 안보이게 설정해야함
+                        />
+                        <Animatable.View>
+                                    <Icon
+                                        name="visibility-off"
+                                        iconStyle={{color:colors.grey3}}
+                                        type = "material"
+                                        style={{marginRight:15}}
+                                    />
+                        </Animatable.View>
+                    </View>
+
+                    <View style = {{marginHorizontal:20,marginVertical:5}}>
+                        <Button 
+                            title="로그인"
+                            buttonStyle={paramenters.styleButton}
+                            titleStyle={paramenters.buttontitle}
+                                onPress ={props.handleSubmit}
+                                //DrawerNavigator 변경전
                         />
                     </View>
-                </View>
+                    </View>
+                    }    
+                </Formik>
 
-                <View style = {{marginLeft:22,marginTop:-12}}>
-                    <Text style = {styles.t1}>password</Text>
-                </View>
-                <View style={styles.TextInput2} >
-
-                    <TextInput
-                        ref = {TextInput2}
-                    //비밀번호 입력칸 + 비밀번호 안보이게 설정해야함
-                    />
-
-                    <Animatable.View>
-                                <Icon
-                                    name="visibility-off"
-                                    iconStyle={{color:colors.grey3}}
-                                    type = "material"
-                                    style={{marginRight:15}}
-                                />
-                    </Animatable.View>
-                </View>
-
-                <View style = {{marginHorizontal:20,marginVertical:5}}>
-                    <Button 
-                        title="로그인"
-                        buttonStyle={paramenters.styleButton}
-                        titleStyle={paramenters.buttontitle}
-                            onPress ={()=>{navigation.navigate('DrawerNavigator')}}
-                            //DrawerNavigator 변경전
-                    />
-                </View>
+                
 
                 <View style = {{alignItems:"flex-end",marginTop:17,marginRight:38}}>
                     <Text style = {{...styles.t1, textDecorationLine:"underline"}}> 비밀번호를 잊으셨나요? </Text>
@@ -108,6 +140,7 @@ export default function SingInScreen({ navigation }){
                         title="새로운 계정 만들기"
                         buttonStyle = {styles.createButton}
                         titleStyle  = {styles.createButtonTitle}
+                        onPress = {()=>{navigation.navigate("SingUpScreen")}}
                     />
                 </View>
                 </View>
