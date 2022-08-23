@@ -1,11 +1,12 @@
 //로그인 첫 페이지
 
-import React,{useState,useRef} from "react";
+import React,{useState,useRef,useEffect,useContext} from "react";
 
 import {View, Image,Text, StyleSheet,Dimensions,TextInput,} from 'react-native'
 import {colors, paramenters,} from "../../global/styles"
 import * as Animatable from 'react-native-animatable'
-
+import {SignInContext} from '../../contexts/authContext';
+import auth from '@react-native-firebase/auth';
 import { Icon, Button, SocialIcon   } from "react-native-elements";
 
 import Swiper from "react-native-swiper";
@@ -13,6 +14,17 @@ import Swiper from "react-native-swiper";
 
 
 export default function SingInWelcomeScreen ({ navigation }){
+    const {dispatchSignedIn}=useContext(SignInContext)
+    useEffect(()=>{
+        auth().onAuthStateChanged((user)=>{
+            if(user){
+                dispatchSignedIn({type:"UPDATE_SIGN_IN",payload:{userToken:"signed-in"}})
+            }else{
+                dispatchSignedIn({type:"UPDATE_SIGN_IN",payload:{userToken:null}})
+            }
+        })
+        
+    },[])    
     return(
         <View style = {{flex:1}}>
             <View style ={{flex:3,justifyContent:'flex-start',alignItems:'center',paddingTop:20}}>    
