@@ -1,6 +1,6 @@
 //로그인 페이지
 
-import React,{useState,useRef} from "react";
+import React,{useState,useRef,useContext} from "react";
 
 import {View, Text, StyleSheet,Dimensions,TextInput, Alert,} from 'react-native'
 import {colors, paramenters,} from "../../global/styles"
@@ -8,6 +8,7 @@ import * as Animatable from 'react-native-animatable'
 import {Formik} from 'formik'; //22에서 추가
 import { Icon, Button, SocialIcon   } from "react-native-elements";
 import auth from '@react-native-firebase/auth'
+import {SignInContext} from '../../contexts/authContext';
 
 import Header from '../../components/Header'
 import { title } from "../../global/styles";
@@ -15,6 +16,8 @@ import { title } from "../../global/styles";
 
 export default function SingInScreen({ navigation }){
 
+    const {dispatchSignedIn}=useContext(SignInContext)
+    
     const[textInput2Fossued, settextInput2Foussued] = useState(false)
 
     const TextInput1 = useRef(1)
@@ -25,7 +28,7 @@ export default function SingInScreen({ navigation }){
         const {password,email} = data
         const user = await auth().signInWithEmailAndPassword(email,password)
         if(user){
-            console.log("USER SIGNED-IN")
+            dispatchSignedIn({type:"UPDATE_SIGN_IN",payload:{userToken:"signed-in"}})
         }
         }
         catch(error){

@@ -5,16 +5,15 @@ import SingInWelcomeScreen from "../screens/authScreens/SingInWelcomeScreen";
 import SingInScreen from "../screens/authScreens/SingInScreen";
 import HomeScreen from "../screens/HomeScreen";
 import RootClientTabs from "./ClientTabs";
-import RestaurantMapScreen from "../screens/RestaurantMapScreen";
-import DrawerNavigator from "./DrawerNavigator"
 import SingUpScreen from "../screens/authScreens/SingUpScreen";
 
-const Drower = createStackNavigator();
 
-export default function AuthStack(){
+const Auth = createStackNavigator();
+
+export function AuthStack(){
     return(
-        <Drower.Navigator>
-            <Drower.Screen
+        <Auth.Navigator>
+            <Auth.Screen
                 name = "SingInWelcomeScreen"
                 component={SingInWelcomeScreen}
                 options = {{
@@ -23,7 +22,7 @@ export default function AuthStack(){
                 }}
             />
 
-        <Drower.Screen
+        <Auth.Screen
                 name = "SingInScreen"
                 component={SingInScreen}
                 options = {{
@@ -31,7 +30,7 @@ export default function AuthStack(){
                     ...TransitionPresets.RevealFromBottomAndroid
                 }}
             />
-        <Drower.Screen
+        <Auth.Screen
                 name = "SingUpScreen"
                 component={SingUpScreen}
                 options = {{
@@ -41,7 +40,7 @@ export default function AuthStack(){
             />
 
     
-        <Drower.Screen
+        <Auth.Screen
                 name = "RootClientTabs"
                 component={RootClientTabs}
                 options = {{
@@ -49,25 +48,8 @@ export default function AuthStack(){
                     ...TransitionPresets.RevealFromBottomAndroid
                 }}
             />
-
-        <Drower.Screen
-                name = "DrawerNavigator"
-                component={DrawerNavigator}
-                options = {{
-                    headerShown:false,
-                    ...TransitionPresets.RevealFromBottomAndroid
-                }}
-            />
-
-            <Drower.Screen
-                name = "RestaurantMapScreen"
-                component={RestaurantMapScreen}
-                options = {{
-                    headerShown:false,
-                    ...TransitionPresets.RevealFromBottomAndroid
-                }}
-            />   
-        </Drower.Navigator>
+ 
+        </Auth.Navigator>
 
         
     )
