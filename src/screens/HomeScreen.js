@@ -108,22 +108,20 @@ export default function HomeScreen({navigation}){
                 </View>
                 
             {/* 접고 피는 부분 확인하기*/}
-            <Collapse>
-                <CollapseHeader
-                >
+            
                 <View style = {styles.hearTextView}>
                     <Text style= {styles.headerText}>카테고리</Text>
                     <Icon
                                             type="material-community"
-                                            name="folder"
+                                            
                                             color={colors.grey1}
                                             size={30}
                                             marginRight={15}
                                             
                                         />
                  </View>
-                </CollapseHeader>
-                <CollapseBody>
+                
+                
                     <View>
                         <FlatList 
                                 
@@ -155,23 +153,22 @@ export default function HomeScreen({navigation}){
                                 
                         />
                     </View>
-                </CollapseBody>
-                </Collapse>
+                
+                
 
             {/* 시작점*/}      
-                <Collapse>
-                <CollapseHeader>
+                
                 <View style = {styles.hearTextView}>  
                     <Text style= {styles.headerText}>무료 배송</Text>
                     <Icon
                         type="material-community"
-                        name="folder"
+                        
                         color={colors.grey1}
                         size={30}
                         marginRight={15}                          
                     />
                  </View>
-                </CollapseHeader>
+                
                 <CollapseBody>
                     <View>
                         <FlatList
@@ -198,7 +195,7 @@ export default function HomeScreen({navigation}){
                         /> 
                     </View>
                 </CollapseBody>
-                </Collapse>
+                
                                     {/*끝점 */}    
                 
                 <Collapse>
@@ -207,7 +204,7 @@ export default function HomeScreen({navigation}){
                     <Text style= {styles.headerText}>행사 중</Text>
                     <Icon
                         type="material-community"
-                        name="folder"
+                        
                         color={colors.grey1}
                         size={30}
                         marginRight={15}                          
@@ -247,7 +244,7 @@ export default function HomeScreen({navigation}){
                     <Text style= {styles.headerText}>가까운 식당</Text>
                     <Icon
                         type="material-community"
-                        name="folder"
+                        
                         color={colors.grey1}
                         size={30}
                         marginRight={15}                          

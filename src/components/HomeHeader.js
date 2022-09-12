@@ -19,7 +19,7 @@ export default function HomeHeader({navigation}){
             </View>
 
             <View style = {{alignItems:"center", justifyContent:"center"}}>
-                <Text style = {{color:colors.cardbackground, fontSize:25, fontWeight:"bold"}}>???????</Text>
+                <Text style = {{color:colors.cardbackground, fontSize:25, fontWeight:"bold"}}>진주잇츠</Text>
             </View>
 
             <View style = {{alignItems:"center", justifyContent:"center",marginRight:20}}>

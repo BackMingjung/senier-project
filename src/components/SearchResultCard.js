@@ -32,7 +32,7 @@ const SearchResultCard = ({
 
                   <View style ={styles.image}>                
                       <Text style ={styles.text1}>{averageReview}</Text>
-                      <Text style ={styles.text2}> {numberOfReview} revies</Text>
+                      <Text style ={styles.text2}> {numberOfReview} reviews</Text>
                   </View>
 
                 </View>

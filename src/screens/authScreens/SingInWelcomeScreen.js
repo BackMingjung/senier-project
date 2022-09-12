@@ -28,8 +28,8 @@ export default function SingInWelcomeScreen ({ navigation }){
     return(
         <View style = {{flex:1}}>
             <View style ={{flex:3,justifyContent:'flex-start',alignItems:'center',paddingTop:20}}>    
-                <Text style={{fontSize:26,color:colors.buttons,fontWeight:'bold'}}>????</Text>
-                <Text style={{fontSize:26,color:colors.buttons,fontWeight:'bold'}}>???????</Text>     
+                <Text style={{fontSize:26,color:colors.buttons,fontWeight:'bold'}}>진주잇츠</Text>
+                     
             </View> 
 
             <View style = {{flex:4,justifyContent:"center"}}>

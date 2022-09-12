@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, ScrollView, Image, Platform} from 'react-native'
 import {colors} from '../global/styles'
-import { CheckBox, Icon } from 'react-native-elements'
+import { CheckBox, Icon, ThemeConsumer } from 'react-native-elements'
 
 import { menu, menuDetailsData } from '../global/Data'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 
 export default class PreferenceScreen extends Component {
 
@@ -16,7 +17,9 @@ export default class PreferenceScreen extends Component {
             preference:menuDetailsData[this.props.route.params.index].preferenceData,
             required:menuDetailsData[this.props.route.params.index].required,
             minimum_quatity :menuDetailsData[this.props.route.params.index].minimum_quatity,
+            counter:menuDetailsData[this.props.route.params.index].counter
         }
+        
     }
     
     render(){
@@ -87,20 +90,56 @@ export default class PreferenceScreen extends Component {
                             }
                             </View>
                           <View style={styles.view10}>
-                            {item.map(items=><View style={styles.view4}>
+                            {item.map(items=>
+                            <TouchableOpacity key={items.id}
+                            onPress={()=>{
+                              const id = this.state.preference.indexOf(item)
+                              if(this.state.minimum_quatity[id] !== null)
+                              {
+                                const check = item.filter(items =>items.checked?items:null);
+                                this.state.preference[id].forEach(i=>{
+                                  if(i.id===items.id){
+                                    if (check.length <this.state.minimum_quatity[id])
+                                    {
+                                      i.checked = !i.checked
+                                    }
+                                    else{
+                                      i.checked =false
+                                    }
+                                  }
+                                })
+                                this.state.counter[id] = this.state.counter[id]+1;
+                                this.setState({
+                                  preference:[...this.state.preference],
+                                  counter:[...this.state.counter]
+                                })
+                              }else{
+                                this.state.preference[id].forEach(i=>{
+                                  if(i.id === items.id){
+                                    i.checked = !i.checked
+                                  }
+                                })
+                                this.setState({preference:[...this.state.preference]})
+                              }
+                            }}
+                            >
+
+                            
+                            <View style={styles.view4}>
                               <View style={styles.view19}>
                                 <View style={styles.view6}>
                                   <CheckBox
                                       center
                                       checkedIcon="check-square-o"
                                       uncheckedIcon="square-o"
-                                      checked={false}
+                                      checked={items.checked}
                                       checkedColor={colors.buttons}/>
                                   <Text style={{color:colors.grey2,marginLeft:-10}}>{items.name}</Text>
                                 </View>
                                 <Text style={styles.text6}>{items.price}원</Text>
                               </View>
                             </View>
+                          </TouchableOpacity>
                             )}
                           </View>
 
