@@ -44,17 +44,17 @@ async function signUp(values){
             <Header title  = "나의 계정"  type = "chevron-left" navigation={navigation}/>
             <ScrollView keyboardShouldPersistTaps = "always">
                 <View style = {styles.view1}>
-                    <Text style = {styles.text1}>Sing-Up</Text>
+                    <Text style = {styles.text1}>회원가입</Text>
                 </View>
                 <Formik initialValues={initialValues} onSubmit = {(values)=>{signUp(values)}}>
                     {(props)=>(
                         <View style={styles.view2}>
                             <View>
-                                <Text style={styles.text2}>New on JINJU EATS</Text>
+                                <Text style={styles.text2}>진주잇츠 계정 만들기</Text>
                             </View>
                                 <View style={styles.view6}>
                                     <TextInput
-                                        placeholder = "Mobile Number"
+                                        placeholder = "휴대폰 번호"
                                         style = {styles.input1}
                                         keyboardType = "number-pad"
                                         autoFocus = {true}
@@ -64,22 +64,22 @@ async function signUp(values){
                                 </View>
                                 <View style={styles.view6}>
                                     <TextInput
-                                        placeholder = "Name"
-                                        style = {styles.input1}
-                                        autoFocus = {false}
-                                        onChangeText = {props.handleChange('name')}
-                                        value = {props.values.name}
-                                    />
-                                </View>
-                                <View style={styles.view6}>
-                                    <TextInput
-                                        placeholder = "Famlily name"
+                                        placeholder = "성"
                                         style = {styles.input1}
                                         autoFocus = {false}
                                         onChangeText = {props.handleChange('family_name')}
                                         value = {props.values.family_name}
                                     />
                                 </View>
+                                <View style={styles.view6}>
+                                    <TextInput
+                                        placeholder = "이름"
+                                        style = {styles.input1}
+                                        autoFocus = {false}
+                                        onChangeText = {props.handleChange('name')}
+                                        value = {props.values.name}
+                                    />
+                                </View>              
                                 <View style ={styles.view10}>
                                   <View>
                                       <Icon 
@@ -119,17 +119,17 @@ async function signUp(values){
                                </View>
 
                                <View style ={styles.view15}>
-                                  <Text style ={styles.text3}>By creating or logging into an account you are</Text>
+                                  <Text style ={styles.text3}>계정을 만들거나 로그인하면</Text>
                                   <View style ={styles.view16}>
-                                      <Text style ={styles.text3}>agreeing with our  </Text>
-                                      <Text style ={styles.text4}> Terms & Conditions</Text>
-                                      <Text style = {styles.text3}> and </Text>
+                                      <Text style ={styles.text4}>이용 약관</Text>
+                                      <Text style ={styles.text3}> 및 </Text>
+                                      <Text style ={styles.text4}>개인정보 보호 정책</Text>
+                                      <Text style = {styles.text3}>에 동의하는 것입니다.</Text>
                                   </View>
-                                  <Text style ={styles.text4}> Privacy Statement</Text>
                                </View>
                                <View style ={styles.view17}>
                                   <Button
-                                      title = "Create my account"
+                                      title = "회원가입"
                                       buttonStyle = {styles.button1}
                                       titleStyle ={styles.title1}
                                       onPress = {props.handleSubmit}
@@ -142,15 +142,15 @@ async function signUp(values){
                     )}
                 </Formik>
                 <View style = {styles.view18}>
-                   <Text style ={styles.text5}>OR</Text>
+                   <Text style ={styles.text5}>또는</Text>
                 </View>
                 <View style ={styles.view19}>
                     <View style ={styles.view20}>
-                        <Text style ={styles.text6}>Already have an account with XpressFood ?</Text>
+                        <Text style ={styles.text6}>이미 진주잇츠 회원이신가요?</Text>
                     </View>
                     <View style ={styles.view21}>
                         <Button 
-                            title = "Sign-In"
+                            title = "로그인"
                             buttonStyle ={styles.button2}
                             titleStyle = {styles.title2}
                             onPress ={()=>{navigation.navigate('SingInScreen')}}
@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
       view6:{flexDirection:'row',
               borderWidth:1,
               borderColor: colors.grey4,
-              borderRadius:12,
+              borderRadius:50,
               paddingLeft:5,
               marginTop:20,
               height:48
@@ -248,7 +248,7 @@ const styles = StyleSheet.create({
       view10: {flexDirection:'row',
               borderWidth:1,
               borderColor:colors.grey4,
-              borderRadius:12,
+              borderRadius:50,
               paddingLeft:5,
               marginTop:20,
               height:48
@@ -276,7 +276,7 @@ const styles = StyleSheet.create({
 
     view14:{
         borderWidth:1,
-        borderRadius:12,
+        borderRadius:50,
         borderColor:colors.grey4,
         flexDirection:"row",
         justifyContent:"space-between",
@@ -304,7 +304,7 @@ const styles = StyleSheet.create({
       button1: {backgroundColor:colors.buttons,
         alignContent:"center",
         justifyContent:"center",
-        borderRadius:12,
+        borderRadius:50,
         borderWidth:1, 
         borderColor:colors.buttons,
         height:50,
@@ -351,7 +351,7 @@ const styles = StyleSheet.create({
       button2:{backgroundColor:colors.background3,
         alignContent:"center",
         justifyContent:"center",
-        borderRadius:12,
+        borderRadius:50,
         borderWidth:1, 
         borderColor:colors.background2,
         height:40,
