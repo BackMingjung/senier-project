@@ -348,19 +348,19 @@ const styles = StyleSheet.create({
         alignItems:'flex-end',
       },
 
-      button2:{backgroundColor:colors.background3,
+      button2:{backgroundColor:colors.buttons,
         alignContent:"center",
         justifyContent:"center",
         borderRadius:50,
         borderWidth:1, 
-        borderColor:colors.background2,
+        borderColor:colors.buttons,
         height:40,
         paddingHorizontal:20,
         // width:'100%'
                           
       },
 
-      title2:{color:colors.buttons,
+      title2:{color:"white",
         fontSize:16,  
         fontWeight:"bold" ,
         alignItems:"center",
